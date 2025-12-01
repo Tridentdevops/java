@@ -20,6 +20,7 @@ jobs:
                   java-version: '17'
 
             - name: give execute permission for gradlew
+              working-directory: ./ad
               run: chmod +x ./gradlew
 
             - name: Build with Gradle
