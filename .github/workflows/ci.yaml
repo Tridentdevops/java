@@ -25,4 +25,4 @@ jobs:
 
             - name: Build with Gradle
               working-directory: ./ad
-              run: ./gradle clean installDist
+              run: ./gradlew clean installDist
