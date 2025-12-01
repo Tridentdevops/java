@@ -17,10 +17,12 @@ jobs:
               uses: actions/setup-java@v3
               with:
                   distribution: 'temurin'
-                  java-version: '17'
+                  java-version: '21'
 
             - name: give execute permission for gradlew
+              working-directory: ./ad
               run: chmod +x ./gradlew
 
             - name: Build with Gradle
-              run: ./gradlew build
+              working-directory: ./ad
+              run: ./gradlew clean installDist
