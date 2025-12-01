@@ -1,0 +1,11 @@
+FROM eclipse-temurin:17-jdk-jammy AS build
+WORKDIR /app
+COPY . .
+RUN chmod +x gradlew
+RUN ./gradlew clean installDist
+
+FROM eclipse-temurin:17-jre-jammy
+WORKDIR /app
+COPY --from=build /app/build/install/opentelemetry-demo-ad/bin ./app/
+EXPOSE 8080
+ENTRYPOINT ["./app/ad"]
