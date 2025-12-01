@@ -23,6 +23,10 @@ jobs:
               working-directory: ./ad
               run: chmod +x ./gradlew
 
+            - name: generate proto files
+              working-directory: ./ad
+              run: ./gradlew generateProto
+
             - name: Build with Gradle
               working-directory: ./ad
               run: ./gradlew build
